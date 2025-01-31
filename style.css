@@ -1,0 +1,721 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #000;
+    color: #00FF00;
+    font-family: 'Share Tech Mono', monospace;
+    overflow-x: hidden;
+}
+
+.matrix-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('matrix.gif');
+    opacity: 0.2;
+    z-index: -1;
+}
+
+/* Menú Burbuja Flotante */
+nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 30, 0, 0.7);
+    border-radius: 30px;
+    padding: 1px 25px;
+    border: 1px solid rgba(0, 255, 0, 0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #00FF00;
+    font-size: 18px;
+    padding: 10px 15px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 255, 0, 0.1);
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+nav a:hover {
+    color: #fff;
+    transform: translateY(-2px);
+    text-shadow: 0 0 10px #00FF00;
+}
+
+nav a:hover::before {
+    opacity: 1;
+}
+
+/* Contenido Principal */
+.content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 80vh;
+    padding: 20px;
+    margin-top: 80px;
+}
+
+/* Efecto Máquina de Escribir */
+@keyframes cursor {
+    50% { border-color: transparent; }
+}
+
+.info h1 {
+    font-size: 2.5em;
+    white-space: nowrap;
+    border-right: 2px solid #fff;
+    display: inline-block;
+    animation: cursor 0.7s step-end infinite;
+    color: white;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.highlight {
+    color: #fff;
+    text-shadow: 0 0 5px #00FF00;
+}
+
+/* Botones */
+.buttons {
+    margin-top: 20px;
+}
+
+.btn {
+    background-color: transparent;
+    border: 2px solid #00FF00;
+    padding: 10px 20px;
+    color: #00FF00;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: 0.3s;
+    margin: 0 10px;
+}
+
+.btn:hover {
+    background-color: #00FF00;
+    color: #000;
+    box-shadow: 0 0 10px #00FF00;
+    transform: scale(1.05);
+}
+
+/* Efecto Glitch */
+.glitch {
+    position: relative;
+    display: inline-block;
+}
+
+.glitch:hover::before,
+.glitch:hover::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    opacity: 0.7;
+    color: #ff00ff;
+}
+
+.glitch:hover::before {
+    top: -2px;
+    left: -2px;
+}
+
+.glitch:hover::after {
+    top: 2px;
+    left: 2px;
+}
+
+/* Menú Hamburguesa (Mobile) */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #00FF00;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 1000;
+    background: rgba(0, 255, 0, 0.1);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+}
+
+/* Estilos Responsive */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+    
+    nav {
+        top: 10px;
+        padding: 5px 15px;
+        width: 95%;
+    }
+    
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 30, 0, 0.95);
+        border-radius: 15px;
+        padding: 15px;
+        box-shadow: 0 10px 20px rgba(0, 255, 0, 0.1);
+    }
+    
+    nav ul.active {
+        display: flex;
+    }
+    
+    nav ul li {
+        margin: 8px 0;
+    }
+    
+    .content {
+        flex-direction: column;
+        text-align: center;
+        margin-top: 100px;
+        height: auto;
+    }
+    
+    .image img {
+        max-width: 250px;
+        margin-top: 30px;
+    }
+}
+
+/* Animaciones */
+@keyframes bubble-pulse {
+    0% { box-shadow: 0 0 10px rgba(0, 255, 0, 0.2); }
+    50% { box-shadow: 0 0 20px rgba(0, 255, 0, 0.4); }
+    100% { box-shadow: 0 0 10px rgba(0, 255, 0, 0.2); }
+}
+
+nav {
+    animation: bubble-pulse 3s infinite;
+}
+
+/* Compatibilidad Navegadores */
+@supports not (backdrop-filter: blur(10px)) {
+    nav {
+        background: rgba(0, 30, 0, 0.9);
+    }
+    .menu-toggle {
+        background: rgba(0, 30, 0, 0.9);
+    }
+}
+
+
+
+
+/* Líneas divisorias entre secciones */
+.section {
+    position: relative;
+    overflow: hidden;
+}
+
+.section::after {
+    content: '01010101010101010101010101010101';
+    white-space: nowrap;
+    color: #00FF00;
+    font-size: 0.8em;
+    opacity: 0.5;
+    animation: scroll 20s linear infinite;
+
+}
+
+@keyframes scroll {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Para la última sección (contacto) */
+#contact::after {
+    display: none;
+}
+
+/* Variación opcional con efecto de escaneo */
+@keyframes scanline {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #00FF00;
+    animation: scanline 6s linear infinite;
+    opacity: 0.3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Añade estos estilos al final de tu CSS existente */
+
+/* Secciones Generales */
+.section {
+    padding: 80px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-title {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+}
+
+
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 2px;
+    background: #00FF00;
+    box-shadow: 0 0 10px #00FF00;
+}
+
+
+
+/* Sección Sobre Mí */
+.editable {
+    max-width: 800px;
+    line-height: 1.6;
+    margin: 20px auto;
+    padding: 20px;
+
+}
+
+.editable::before {
+    content: attr(data-content);
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    background: #000;
+    padding: 0 10px;
+    font-size: 0.8em;
+    color: #00FF00;
+    opacity: 0.7;
+}
+
+/* Habilidades */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.skill-item {
+    background: rgba(0, 30, 0, 0.3);
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #00FF00;
+}
+
+.skill-item h3 {
+    color: #00FF00;
+    margin-bottom: 15px;
+}
+
+.skill-item ul {
+    list-style: none;
+}
+
+.skill-item li {
+    margin: 10px 0;
+    padding: 8px;
+    background: rgba(0, 255, 0, 0.1);
+}
+
+/* Proyectos - Versión Compacta */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    width: 100%;
+    max-width: 1000px;
+    padding: 20px;
+    justify-items: center;
+}
+
+.project-card {
+    background: rgba(0, 30, 0, 0.3);
+    border-radius: 10px;
+    border: 1px solid #00FF00;
+    padding: 15px;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+}
+
+.project-link {
+    text-decoration: none; /* Quita el subrayado de los enlaces */
+    color: inherit; /* Hereda el color del contenedor padre */
+}
+
+
+
+.project-image {
+    width: 100%;
+    height: 150px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    border: 1px solid #00FF00;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-info h3 {
+    color: #00FF00;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+}
+
+.project-info p {
+    font-size: 0.85em;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    min-height: 60px;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+    margin-top: auto;
+}
+
+.tech-item {
+    background: rgba(0, 255, 0, 0.1);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.75em;
+    border: 1px solid #00FF00;
+    white-space: nowrap;
+}
+
+.project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 12px #00FF00;
+}
+
+/* Contacto */
+.contact-form {
+    max-width: 600px;
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.glitch-input {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: 1px solid #00FF00;
+    color: #00FF00;
+    font-family: 'Share Tech Mono', monospace;
+    transition: all 0.3s;
+}
+
+.glitch-input:focus {
+    outline: none;
+    box-shadow: 0 0 15px #00FF00;
+}
+
+textarea.glitch-input {
+    height: 150px;
+    resize: vertical;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .section {
+        padding: 60px 15px;
+    }
+    
+    .section-title {
+        font-size: 2em;
+    }
+    
+    .skills-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* Agrega esto a tu CSS */
+.languages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.language-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: rgba(0, 30, 0, 0.3);
+    border-radius: 10px;
+    border: 1px solid #00FF00;
+    transition: all 0.3s ease;
+}
+
+.language-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px #00FF00;
+}
+
+.language-icon {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 5px #00FF00);
+}
+
+.language-name {
+    font-size: 1.1em;
+    text-align: center;
+    color: #00FF00;
+    text-shadow: 0 0 8px #00FF00;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .languages-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    
+    .language-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .language-name {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .languages-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* Redes Sociales */
+.social-footer {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.social-links {
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+    justify-content: left; /* Centra horizontalmente */
+    gap: 15px;
+    padding: 10px;
+    background: rgba(0, 30, 0, 0.5);
+    border-radius: 30px;
+    backdrop-filter: blur(5px);
+    border: 1px solid #00FF00;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+    overflow: hidden; /* Oculta el contenido que se desborda */
+    max-width: 127px; /* Ancho inicial (ajustado al texto) */
+    min-width: 50px; /* Ancho mínimo (ajustado a los íconos) */
+    transition: max-width 0.5s ease, padding 0.5s ease; /* Transición suave */
+}
+
+.social-links:hover {
+    max-width: 300px; /* Ancho final (ajustado a los íconos) */
+    padding: 10px 20px; /* Ajusta el padding al desplegar */
+    justify-content: flex-start; /* Alinea los íconos a la izquierda al desplegar */
+}
+
+.social-text {
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    color: #00FF00;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 14px;
+    display: inline-block; /* Asegura que el texto ocupe espacio */
+    transition: opacity 0.3s ease, display 0.3s ease;
+}
+
+.social-links:hover .social-text {
+    display: none; /* Oculta el texto y libera el espacio */
+}
+
+.social-img {
+    width: 40px;
+    height: 40px;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 3px #00FF00);
+    opacity: 0; /* Inicialmente invisible */
+    transform: translateX(-20px); /* Desplazado hacia la izquierda */
+    transition: opacity 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-links:hover .social-img {
+    opacity: 1; /* Visible al desplegar */
+    transform: translateX(0); /* Vuelve a su posición original */
+}
+
+.social-img:hover {
+    transform: translateY(-3px);
+    filter: drop-shadow(0 0 8px #00FF00);
+    cursor: pointer;
+}
+
+/* Estilos específicos para móviles */
+@media (max-width: 768px) {
+    .social-footer {
+        bottom: 10px;
+        left: 50%; /* Centrado horizontal */
+        transform: translateX(-50%); /* Ajuste fino para centrar */
+        width: auto; /* Ancho automático */
+    }
+
+    .social-links {
+        gap: 10px;
+        padding: 8px;
+        max-width: none; /* Sin límite de ancho */
+        min-width: auto; /* Sin límite de ancho */
+        justify-content: center; /* Centra los íconos */
+        background: rgba(0, 30, 0, 0.7); /* Fondo más visible */
+        border-radius: 20px; /* Bordes más redondeados */
+    }
+
+    .social-text {
+        display: none; /* Oculta el texto en móviles */
+    }
+
+    .social-img {
+        width: 30px; /* Íconos más pequeños */
+        height: 30px;
+        opacity: 1; /* Siempre visibles en móviles */
+        transform: translateX(0); /* Sin desplazamiento */
+    }
+
+    .social-links:hover .social-img {
+        opacity: 1; /* Mantener visibles los íconos */
+    }
+
+    .social-img:hover {
+        transform: translateY(-3px); /* Efecto hover en móviles */
+        filter: drop-shadow(0 0 8px #00FF00);
+    }
+}

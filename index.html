@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex | Estudiante de Ingeniería Informática |</title>
+    <link rel="icon" href="image/hacker.png" type="image/x-icon"> <!-- Tu logo aquí -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="matrix-bg"></div>
+
+    <header>
+
+        
+        <nav>
+            <div class="menu-toggle">☰</div>
+            <ul>
+                <li><a href="#home" class="glitch">Home</a></li>
+                <li><a href="#about" class="glitch">Descripción</a></li>
+                <li><a href="#skills" class="glitch">Habilidades</a></li>
+                <li><a href="#projects" class="glitch">Proyectos</a></li>
+                <li><a href="#contact" class="glitch">Contacto</a></li>
+                <li><a href="doc/cv_canchos.pdf" class="glitch" target="_blank">Cv</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="content">
+        <div class="info">
+            <h1 id="typing-text"></h1>
+            <p class="subtitle">ESTUDIANTE DE INGENIERIA DE <span class="highlight">INFORMATICA</span></p>
+            <p>Estudiante de Ingeniería Informática | Desarrollo Web | Bases de Datos | Algoritmos,</p>
+            <p> aprendiendo y construyendo proyectos que marcan la diferencia.</p>
+        </div>
+
+        <div class="image">
+            <img src="image/chk.png" alt="Hacker coding">
+        </div>
+    </section>
+
+<!-- Sección Sobre Mí -->
+<section id="about" class="section">
+    <h2 class="section-title glitch" data-text="SOBRE_MÍ">DESCRIPCIÓN</h2>
+    <div class="editable" data-content="about">
+        <p>Soy estudiante de Ingeniería en Informática con un fuerte interés en la ciberseguridad y el desarrollo de software. 
+            Me motiva aprender sobre protección de sistemas, análisis de vulnerabilidades y fortalecer la seguridad en aplicaciones 
+            web. Disfruto enfrentando retos que me ayuden a mejorar mis habilidades técnicas y analíticas. 
+            Estoy en constante aprendizaje, explorando nuevas tecnologías y metodologías para contribuir a un entorno digital más 
+            seguro.</p>
+    </div>
+</section>
+
+<!-- Sección Habilidades -->
+<section id="skills" class="section">
+    <h2 class="section-title glitch" data-text="HABILIDADES">HABILIDADES</h2>
+    <div class="languages-grid">
+        <!-- Item de lenguaje -->
+        <div class="language-item">
+            <img src="image/python.png" alt="Python" class="language-icon">
+            <span class="language-name">Python</span>
+        </div>
+        
+        <!-- Repite este bloque por cada lenguaje -->
+        <div class="language-item">
+            <img src="image/js.png" alt="JavaScript" class="language-icon">
+            <span class="language-name">JavaScript</span>
+        </div>
+        
+        <div class="language-item">
+            <img src="image/c.png" alt="C#" class="language-icon">
+            <span class="language-name">C#</span>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<!-- Sección Proyectos -->
+<section id="projects" class="section">
+    <h2 class="section-title glitch" data-text="PROYECTOS">PROYECTOS</h2>
+    <div class="projects-grid editable" data-content="projects">
+
+      <!-- Proyecto 1 -->
+    <a href="https://bot-jug6.onrender.com/" class="project-link" target="_blank">
+      <div class="project-card">
+        <div class="project-image">
+            <img src="image/images.png" alt="Proyecto 1">
+        </div>
+        <div class="project-info">
+            <h3>Chatbot AI</h3>
+            <p>Asistente virtual con procesamiento de lenguaje natural usando dialog Flow.</p>
+            <div class="tech-stack">
+                <span class="tech-item">JavaScript</span>
+                <span class="tech-item">Css</span>
+                <span class="tech-item">Html</span>
+                <span class="tech-item">Render</span>
+            </div>
+        </div>
+      </div>
+    </a>
+        <!-- Duplica este bloque para más proyectos -->
+    </div>
+</section>
+
+
+
+
+<!-- Sección Contacto -->
+<section id="contact" class="section">
+    <h2 class="section-title glitch" data-text="CONTACTO">CONTACTO</h2>
+    <form class="contact-form">
+        <div class="form-group">
+            <input type="text" placeholder="Nombre" class="glitch-input">
+        </div>
+        <div class="form-group">
+            <input type="email" placeholder="Email" class="glitch-input">
+        </div>
+        <div class="form-group">
+            <textarea placeholder="Mensaje" class="glitch-input"></textarea>
+        </div>
+        <button type="submit" class="btn glitch">ENVIAR MENSAJE</button>
+    </form>
+</section>
+</main>
+    <script src="script.js"></script>
+
+
+<footer class="social-footer">
+    <div class="social-links">
+        <span class="social-text">Redes Sociales</span>
+        <a href="https://github.com/Tim4do" target="_blank" class="social-icon">
+            <img src="image/github.png" alt="GitHub" class="social-img">
+        </a>
+        <a href="https://www.linkedin.com/in/alex-canchos-l%C3%B3pez-a9465934a/" target="_blank" class="social-icon">
+            <img src="image/linkedin.png" alt="LinkedIn" class="social-img">
+        </a>
+        <a href="https://www.instagram.com/alex_kxng27/" target="_blank" class="social-icon">
+            <img src="image/instagram.png" alt="Instagram" class="social-img">
+        </a>
+    </div>
+</footer>
+
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger
+  intent="PRESENTACION"
+  chat-title="Tim4do"
+  agent-id="bb861a5b-3b5e-43c7-874b-fb68dc6cc35f"
+  language-code="es"
+  chat-icon="image/chatbot.png"
+></df-messenger>
+
+</body>
+</html>

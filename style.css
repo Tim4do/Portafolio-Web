@@ -718,4 +718,16 @@ textarea.glitch-input {
         transform: translateY(-3px); /* Efecto hover en móviles */
         filter: drop-shadow(0 0 8px #00FF00);
     }
+
+
+    /* Ocultar elementos cuando el chatbot está abierto */
+    .hidden-when-chatbot-open {
+        display: none !important;
+    }
 }
+
+
+
+
+
+

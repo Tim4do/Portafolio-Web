@@ -102,5 +102,20 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
+    // Manejo de visibilidad del chatbot
+    const chatbox = document.querySelector('df-messenger');
+    const socialLinks = document.querySelector('.social-links');
+    
+    chatbox.addEventListener('df-messenger-opened', function() {
+        socialLinks.classList.add('hidden-when-chatbot-open');
+        menuToggle.classList.add('hidden-when-chatbot-open');
+    });
+    
+    chatbox.addEventListener('df-messenger-closed', function() {
+        socialLinks.classList.remove('hidden-when-chatbot-open');
+        menuToggle.classList.remove('hidden-when-chatbot-open');
+    });
+
+
 
 });

@@ -123,6 +123,8 @@ nav a:hover::before {
 }
 
 .btn {
+    
+    font-family: 'Share Tech Mono', monospace;
     background-color: transparent;
     border: 2px solid #00FF00;
     padding: 10px 20px;
@@ -281,6 +283,18 @@ nav {
 #contact::after {
     display: none;
 }
+
+/* Estilo para el contenedor del botón */
+.submit-container {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    margin-top: 20px; /* Espacio superior */
+}
+
+
+
+
+
 
 /* Variación opcional con efecto de escaneo */
 @keyframes scanline {
@@ -509,6 +523,7 @@ nav {
     width: 100%;
 }
 
+
 .form-group {
     margin-bottom: 25px;
 }
@@ -690,6 +705,7 @@ textarea.glitch-input {
     }
 
     .social-links {
+        display: flex;
         gap: 10px;
         padding: 8px;
         max-width: none; /* Sin límite de ancho */
@@ -700,7 +716,8 @@ textarea.glitch-input {
     }
 
     .social-text {
-        display: none; /* Oculta el texto en móviles */
+        display: none; /* Mostrar el texto en móviles */
+        text-align: center; /* Centrar el texto */
     }
 
     .social-img {
@@ -729,5 +746,19 @@ textarea.glitch-input {
 
 
 
-
+.confirmation-message {
+    margin-top: 10px; /* Ajusta este valor según sea necesario */
+    padding: 10px;
+    z-index: 1000;
+    background-color: transparent;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    border: 2px solid #d6e9c6;
+    font-family: 'Share Tech Mono', monospace;
+    position: fixed; /* Cambia a 'fixed' para que se superponga sobre otros elementos */
+    top: 50%; /* Ajusta la posición vertical */
+    left: 50%; /* Ajusta la posición horizontal */
+    transform: translate(-50%, -50%); /* Centra el mensaje */
+}
 

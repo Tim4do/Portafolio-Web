@@ -117,5 +117,32 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
+    // Inicializar EmailJS
+    emailjs.init("8PJidGRzzSdNKzwg4"); // Reemplaza TU_USER_ID con tu User ID de EmailJS
+
+    // Manejar el envío del formulario
+    document.querySelector('.contact-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Evita el envío del formulario por defecto
+
+        emailjs.sendForm('service_1x5zfyb', 'template_obopfoa', this)
+            .then(function() {
+                // Mostrar mensaje de confirmación
+                const confirmationMessage = document.getElementById('confirmation-message');
+                confirmationMessage.style.display = 'block';
+                confirmationMessage.textContent = 'Mensaje enviado!';
+
+                // Limpiar los campos del formulario
+                event.target.reset();
+
+                // Ocultar el mensaje después de unos segundos
+                setTimeout(() => {
+                    confirmationMessage.style.display = 'none';
+                }, 1000);
+            }, function(error) {
+                alert('Error al enviar el mensaje: ' + JSON.stringify(error));
+            });
+    });
+
+
 
 });
